@@ -1,7 +1,17 @@
 // /config/firebaseConfig.js
 const admin = require('firebase-admin');
-const serviceAccount = require('./socialmedia-8f7cb-firebase-adminsdk-nrbk0-d578b2ce14.json'); // Adjust the path as necessary
-
+const serviceAccount = {
+  type: "service_account",
+  project_id: process.env.project_id,
+  private_key: process.env.private_key_id,  
+  client_email: process.env.private_key,
+ client_id: "110682445753243770885",
+  auth_uri: "https://accounts.google.com/o/oauth2/auth",
+  token_uri: "https://oauth2.googleapis.com/token",
+  auth_provider_x509_cert_url: "https://www.googleapis.com/oauth2/v1/certs",
+  client_x509_cert_url: "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-nrbk0%40socialmedia-8f7cb.iam.gserviceaccount.com",
+  universe_domain: "googleapis.com"
+};
 // Initialize Firebase Admin
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
