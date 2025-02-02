@@ -15,8 +15,8 @@ const serviceAccount = {
 // Initialize Firebase Admin
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
-  storageBucket: 'gs://socialmedia-8f7cb.appspot.com',  // Your Firebase Storage bucket
+  storageBucket: process.env.storageBucket ,  
 });
 
-const bucket = admin.storage().bucket();  // Get the storage bucket
-module.exports = bucket;  // Export the bucket for use in other files
+const bucket = admin.storage().bucket();  
+module.exports = bucket;  
